@@ -1,0 +1,62 @@
+{
+  "Kanda Wt without Bardana(Qtl)": {
+    "formula": "=[Kanda Wt with Bardana(Qtl)] - (([Bags]/2)/100)",
+    "excel_formula": ""
+  },
+  "Bill Basic Amt": {
+    "formula": "=[Bill Wt (Qtl)] * [Basic Rate as per Bill]",
+    "excel_formula": ""
+  },
+  "MRN No.": {
+    "formula": "=ROW()-1",
+    "excel_formula": ""
+  },
+  "Dami Amt": {
+    "formula": "=[Bill Basic Amt] * 0.025",
+    "excel_formula": ""
+  },
+  "Other Crs amt": {
+    "formula": "=[Total Bill Amt (Rounded Off)] - ([Bill Basic Amt] + [Dami Amt] + [Other Amt])",
+    "excel_formula": ""
+  },
+  "Total Bill Amt (Rounded Off)": {
+    "formula": "=ROUND([Bill Basic Amt] + [Dami Amt] + [Other Amt], 0)",
+    "excel_formula": ""
+  },
+  "Cost as per Bill": {
+    "formula": "=[Total Bill Amt (Rounded Off)] / [Kanda Wt with Bardana(Qtl)]",
+    "excel_formula": ""
+  },
+  "Shortage": {
+    "formula": "=IF(([Bill Wt (Qtl)] - [Kanda Wt without Bardana(Qtl)]) > -0.0001, [Bill Wt (Qtl)] - [Kanda Wt without Bardana(Qtl)], 0)",
+    "excel_formula": ""
+  },
+  "Shortage Amt": {
+    "formula": "=[Shortage] * [Sauda]",
+    "excel_formula": ""
+  },
+  "Rate Diff (per Qtl)": {
+    "formula": "=ROUND(IF(([Basic Rate as per Bill] - [Sauda]) > 0.5, [Basic Rate as per Bill] - [Sauda], 0), 2)",
+    "excel_formula": ""
+  },
+  "Rate Diff Amt": {
+    "formula": "=[Rate Diff (per Qtl)] * [Bill Wt (Qtl)]",
+    "excel_formula": ""
+  },
+  "Fungus Cut": {
+    "formula": "=ROUND(IF([Fungus]<=1.5, 0, IF(AND([Fungus]>1.5,[Fungus]<=2), 5*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Fungus]>2,[Fungus]<=2.5), 10*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Fungus]>2.5,[Fungus]<=3), 15*MIN([Basic Rate as per Bill],[Sauda]), 0)))), 0)",
+    "excel_formula": ""
+  },
+  "Broken Cut": {
+    "formula": "=IF([Broken]<=12, 0, IF(AND([Broken]>12,[Broken]<=15), 10*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Broken]>15,[Broken]<=16), 15*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Broken]>16,[Broken]<=17), 20*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Broken]>17,[Broken]<=18), 30*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Broken]>18,[Broken]<=19), 40*MIN([Basic Rate as per Bill],[Sauda]), 0))))))",
+    "excel_formula": ""
+  },
+  "Moisture Cut": {
+    "formula": "=IF([Moist(%)]<=12, 0, IF(AND([Moist(%)]>12,[Moist(%)]<=15), 10*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Moist(%)]>15,[Moist(%)]<=16), 15*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Moist(%)]>16,[Moist(%)]<=17), 20*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Moist(%)]>17,[Moist(%)]<=18), 30*MIN([Basic Rate as per Bill],[Sauda]), IF(AND([Moist(%)]>18,[Moist(%)]<=19), 40*MIN([Basic Rate as per Bill],[Sauda]), 0))))))",
+    "excel_formula": ""
+  },
+  "Raw Material Value": {
+    "formula": "=[Total Bill Amt (Rounded Off)] - [Fungus Cut] - [Broken Cut] - [Moisture Cut]",
+    "excel_formula": ""
+  }
+}
